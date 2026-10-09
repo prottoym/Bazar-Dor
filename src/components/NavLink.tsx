@@ -1,5 +1,12 @@
 import Link from "next/link";
 
+type Category = {
+  id: number;
+  slug: string;
+  icon: string;
+  nameBn: string;
+};
+
 const NavLink = async () => {
   const res = await fetch(
     "https://api.api-store.workers.dev/api/bazardor/categories",
@@ -8,7 +15,7 @@ const NavLink = async () => {
     },
   );
 
-  const data = await res.json();
+  const data: Category[] = await res.json();
 
   return (
     <div className="w-full flex justify-center px-4 border-b border-black/10">

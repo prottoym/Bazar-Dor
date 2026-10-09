@@ -5,6 +5,9 @@ import EmptyState from "@/components/category/EmptyState";
 import CardSkeleton from "@/components/category/CardSkeleton";
 import { Product } from "@/Types";
 
+const gridClass =
+  "grid grid-cols-1 min-[480px]:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4";
+
 async function CategoryContent({
   params,
   searchParams,
@@ -23,6 +26,7 @@ async function CategoryContent({
 
   let products = all.filter((p) => p.category === slug);
 
+  // Empty state: invalid slug ba product nai
   if (products.length === 0) {
     return <EmptyState />;
   }
@@ -35,16 +39,16 @@ async function CategoryContent({
   return (
     <>
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <h1 className="flex items-center gap-2 text-[24px] leading-8 font-bold">
+        <h1 className="flex items-center gap-2 text-[22px] sm:text-[26px] leading-8 font-bold">
           <span>{categoryIcon}</span>
           {categoryNameBn}
         </h1>
-        <Suspense fallback={null}>
+        <Suspense fallback={<div className="skeleton h-9 w-full sm:w-64" />}>
           <SortControl />
         </Suspense>
       </div>
 
-      <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+      <div className={`mt-4 ${gridClass}`}>
         {products.map((p) => (
           <ProductCard key={p.id} p={p} />
         ))}
@@ -58,14 +62,17 @@ export default function CategoryPage(props: {
   searchParams: Promise<{ sort?: string }>;
 }) {
   return (
-    <div className="w-full max-w-[1152px] mx-auto px-4 py-6">
+    <div className="w-full max-w-[1152px] mx-auto px-4 py-4 sm:py-6">
       <Suspense
         fallback={
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <CardSkeleton key={i} />
-            ))}
-          </div>
+          <>
+            <div className="skeleton h-8 w-40" />
+            <div className={`mt-4 ${gridClass}`}>
+              {Array.from({ length: 8 }).map((_, i) => (
+                <CardSkeleton key={i} />
+              ))}
+            </div>
+          </>
         }
       >
         <CategoryContent

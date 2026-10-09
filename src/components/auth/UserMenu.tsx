@@ -20,13 +20,13 @@ const UserMenu = () => {
       <div className="flex items-center gap-4 w-fit h-10">
         <Link
           href="/signin"
-          className="btn btn-ghost h-10 min-h-10 px-2 text-[16px] font-bold whitespace-nowrap hover:bg-transparent"
+          className="btn btn-ghost h-10 min-h-10 px-2 text-[14px] sm:text-[16px] font-bold whitespace-nowrap hover:bg-transparent"
         >
           সাইন ইন
         </Link>
         <Link
           href="/signup"
-          className="btn btn-success h-10 min-h-10 px-5 rounded-xl border-none bg-[#0A8A3E] text-white text-[16px] font-bold whitespace-nowrap shadow-lg shadow-green-600/40 hover:bg-[#087a37]"
+          className="btn btn-success h-10 min-h-10 px-3 sm:px-5 rounded-xl border-none bg-[#0A8A3E] text-white text-[14px] sm:text-[16px] font-bold whitespace-nowrap shadow-lg shadow-green-600/40 hover:bg-[#087a37]"
         >
           সাইন আপ
         </Link>
@@ -47,7 +47,9 @@ const UserMenu = () => {
           router.push("/");
           router.refresh();
         },
-        onError: () => toast.error("সাইন আউট করা যায়নি, আবার চেষ্টা করুন"),
+        onError: () => {
+          toast.error("সাইন আউট করা যায়নি, আবার চেষ্টা করুন");
+        },
       },
     });
   };
