@@ -2,10 +2,6 @@
 
 A responsive web app that shows daily prices of essential goods (rice, lentils, oil, vegetables, fish, meat, eggs & dairy, spices) across different markets in Bangladesh. All content is in Bangla, with Bengali digits.
 
-**Live demo:** _add your deployed link here_
-
-![Home page](./screenshots/home.png)
-
 ---
 
 ## ✨ Features
@@ -182,6 +178,7 @@ npm start
 
 ---
 
-## 📄 License
+## Live Link
+- https://bazar-dor-x3nc.vercel.app/
 
-This project is for learning / assignment purposes. Add a license here if you plan to share it publicly.
+
