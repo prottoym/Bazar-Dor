@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { toast } from "sonner";
+import toast from "react-hot-toast";
 import { FiLogOut, FiUser } from "react-icons/fi";
 import { authClient } from "@/lib/auth-client";
 import UserAvatar from "./UserAvatar";

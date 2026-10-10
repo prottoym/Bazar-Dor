@@ -1,6 +1,8 @@
+
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { FiChevronDown } from "react-icons/fi";
 
 const options = [
   { value: "", label: "ডিফল্ট" },
@@ -25,17 +27,22 @@ const SortControl = () => {
   return (
     <label className="flex w-full sm:w-auto items-center gap-2 text-[13px]">
       <span className="shrink-0 text-black/60">সাজান:</span>
-      <select
-        value={current}
-        onChange={(e) => onChange(e.target.value)}
-        className="h-9 w-full sm:w-auto px-3 rounded-lg border border-black/10 bg-white text-[13px] outline-none focus:border-[#0A8A3E]"
-      >
-        {options.map((o) => (
-          <option key={o.value} value={o.value}>
-            {o.label}
-          </option>
-        ))}
-      </select>
+
+      <span className="relative block w-full sm:w-auto">
+        <select
+          value={current}
+          onChange={(e) => onChange(e.target.value)}
+          className="h-9 w-full sm:w-52 appearance-none rounded-lg border border-black/10 bg-white pl-3 pr-9 text-[13px] outline-none focus:border-[#0A8A3E] cursor-pointer"
+        >
+          {options.map((o) => (
+            <option key={o.value} value={o.value}>
+              {o.label}
+            </option>
+          ))}
+        </select>
+
+        <FiChevronDown className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[16px] text-black/60" />
+      </span>
     </label>
   );
 };

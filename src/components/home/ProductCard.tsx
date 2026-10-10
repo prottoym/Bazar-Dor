@@ -15,7 +15,7 @@ const ProductCard = ({ p }: { p: Product }) => (
     href={`/product/${p.slug}`}
     className="block min-w-0 p-3 sm:p-4 rounded-xl border border-black/10 bg-white/70 transition hover:shadow-md hover:-translate-y-0.5"
   >
-    {/* Top: emoji + name + unit */}
+    {/* emoji and name and unit */}
     <div className="flex items-center gap-2.5">
       <div className="shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-black/5 flex items-center justify-center text-[20px] sm:text-[22px]">
         {p.image}
@@ -30,7 +30,7 @@ const ProductCard = ({ p }: { p: Product }) => (
       </div>
     </div>
 
-    {/* Bottom: price + badge */}
+    {/* price icon */}
     <div className="mt-3">
       <p className="text-[11px] sm:text-[12px] leading-4 text-black/60">
         আজকের দাম

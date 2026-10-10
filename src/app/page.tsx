@@ -1,7 +1,4 @@
 import Banner from "@/components/Banner";
-import Marquee from "@/components/Marquee";
-import Image from "next/image";
-
 import ProductSection from "@/components/home/ProductSection";
 import { Product } from "@/Types";
 
@@ -23,12 +20,8 @@ export default async function Home() {
     .slice(0, 6);
 
   return (
-    <div>
-      <Marquee />
-
-      
+    <div className="pb-6">
       <Banner />
-
 
       <ProductSection
         title="আজ দাম বেড়েছে"
