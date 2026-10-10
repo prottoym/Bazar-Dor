@@ -1,5 +1,6 @@
 import MarqueeText from "react-marquee-text";
 import "react-marquee-text/dist/styles.css";
+import { Product } from "@/Types";
 
 const unitMap: Record<string, string> = {
   kg: "কেজি",
@@ -18,7 +19,7 @@ const Marquee = async () => {
       },
     },
   );
-  const data = await res.json();
+  const data: Product[] = await res.json();
 
   const headlines = data;
 

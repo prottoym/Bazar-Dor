@@ -21,7 +21,7 @@ function NameForm({ initialName }: { initialName: string }) {
     const { error } = await authClient.updateUser({ name: name.trim() });
     setSaving(false);
     if (error) {
-      toast.error("আপডেট করা যায়নি");
+      toast.error(error.message || "আপডেট করা যায়নি");
       return;
     }
     toast.success("প্রোফাইল আপডেট হয়েছে");
@@ -61,7 +61,9 @@ export default function ProfilePage() {
           router.push("/");
           router.refresh();
         },
-        onError: () => toast.error("সাইন আউট করা যায়নি"),
+        onError: (ctx) => {
+          toast.error(ctx.error.message || "সাইন আউট করা যায়নি");
+        },
       },
     });
   };
